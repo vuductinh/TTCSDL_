@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="quan_li_sinh_vien_NCKHModelStoreContainer" CdmEntityContainer="quan_li_sinh_vien_NCKHEntities">
+    <EntitySetMapping Name="BoMons">
+      <EntityTypeMapping TypeName="quan_li_sinh_vien_NCKHModel.BoMon">
+        <MappingFragment StoreEntitySet="BoMon">
+          <ScalarProperty Name="Mabomon" ColumnName="Mabomon" />
+          <ScalarProperty Name="tenbomon" ColumnName="tenbomon" />
+          <ScalarProperty Name="Makhoa" ColumnName="Makhoa" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ChuyenNganhs">
+      <EntityTypeMapping TypeName="quan_li_sinh_vien_NCKHModel.ChuyenNganh">
+        <MappingFragment StoreEntitySet="ChuyenNganh">
+          <ScalarProperty Name="MaCN" ColumnName="MaCN" />
+          <ScalarProperty Name="tenCN" ColumnName="tenCN" />
+          <ScalarProperty Name="Mabomon" ColumnName="Mabomon" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DetaiNCKHs">
+      <EntityTypeMapping TypeName="quan_li_sinh_vien_NCKHModel.DetaiNCKH">
+        <MappingFragment StoreEntitySet="DetaiNCKH">
+          <ScalarProperty Name="Madetai" ColumnName="Madetai" />
+          <ScalarProperty Name="tendetai" ColumnName="tendetai" />
+          <ScalarProperty Name="noidung" ColumnName="noidung" />
+          <ScalarProperty Name="ngaybd" ColumnName="ngaybd" />
+          <ScalarProperty Name="ngaykt" ColumnName="ngaykt" />
+          <ScalarProperty Name="ketqua" ColumnName="ketqua" />
+          <ScalarProperty Name="MaGV" ColumnName="MaGV" />
+          <ScalarProperty Name="MaCN" ColumnName="MaCN" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GiaoViens">
+      <EntityTypeMapping TypeName="quan_li_sinh_vien_NCKHModel.GiaoVien">
+        <MappingFragment StoreEntitySet="GiaoVien">
+          <ScalarProperty Name="MaGV" ColumnName="MaGV" />
+          <ScalarProperty Name="TenGV" ColumnName="TenGV" />
+          <ScalarProperty Name="gioitinhGV" ColumnName="gioitinhGV" />
+          <ScalarProperty Name="Mabomon" ColumnName="Mabomon" />
+          <ScalarProperty Name="ngaysinhgv" ColumnName="ngaysinhgv" />
+          <ScalarProperty Name="luong" ColumnName="luong" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Khoas">
+      <EntityTypeMapping TypeName="quan_li_sinh_vien_NCKHModel.Khoa">
+        <MappingFragment StoreEntitySet="Khoa">
+          <ScalarProperty Name="Makhoa" ColumnName="Makhoa" />
+          <ScalarProperty Name="Tenkhoa" ColumnName="Tenkhoa" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LopSHes">
+      <EntityTypeMapping TypeName="quan_li_sinh_vien_NCKHModel.LopSH">
+        <MappingFragment StoreEntitySet="LopSH">
+          <ScalarProperty Name="MalopSH" ColumnName="MalopSH" />
+          <ScalarProperty Name="Tenlopsh" ColumnName="Tenlopsh" />
+          <ScalarProperty Name="Makhoa" ColumnName="Makhoa" />
+          <ScalarProperty Name="tongsoSV" ColumnName="tongsoSV" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="QuanliTHs">
+      <EntityTypeMapping TypeName="quan_li_sinh_vien_NCKHModel.QuanliTH">
+        <MappingFragment StoreEntitySet="QuanliTH">
+          <ScalarProperty Name="MaSV" ColumnName="MaSV" />
+          <ScalarProperty Name="Madetai" ColumnName="Madetai" />
+          <ScalarProperty Name="NDthuchien" ColumnName="NDthuchien" />
+          <ScalarProperty Name="ketqua" ColumnName="ketqua" />
+          <ScalarProperty Name="vaitro" ColumnName="vaitro" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SinhViens">
+      <EntityTypeMapping TypeName="quan_li_sinh_vien_NCKHModel.SinhVien">
+        <MappingFragment StoreEntitySet="SinhVien">
+          <ScalarProperty Name="MaSV" ColumnName="MaSV" />
+          <ScalarProperty Name="TenSV" ColumnName="TenSV" />
+          <ScalarProperty Name="NgaySinh" ColumnName="NgaySinh" />
+          <ScalarProperty Name="Diachi" ColumnName="Diachi" />
+          <ScalarProperty Name="Gioitinh" ColumnName="Gioitinh" />
+          <ScalarProperty Name="MalopSH" ColumnName="MalopSH" />
+          <ScalarProperty Name="tongsodetai" ColumnName="tongsodetai" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="quan_li_sinh_vien_NCKHModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TienDoTHs">
+      <EntityTypeMapping TypeName="quan_li_sinh_vien_NCKHModel.TienDoTH">
+        <MappingFragment StoreEntitySet="TienDoTH">
+          <ScalarProperty Name="MaTD" ColumnName="MaTD" />
+          <ScalarProperty Name="ketquaTD" ColumnName="ketquaTD" />
+          <ScalarProperty Name="Madetai" ColumnName="Madetai" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

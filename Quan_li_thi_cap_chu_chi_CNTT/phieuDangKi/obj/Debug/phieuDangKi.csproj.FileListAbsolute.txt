@@ -1,0 +1,15 @@
+C:\Users\Vu Duc Tinh\Downloads\Thuc_Tap_CSDL\Quan_li_thi_cap_chu_chi_CNTT\phieuDangKi\bin\Debug\phieuDangKi.exe.config
+C:\Users\Vu Duc Tinh\Downloads\Thuc_Tap_CSDL\Quan_li_thi_cap_chu_chi_CNTT\phieuDangKi\bin\Debug\phieuDangKi.exe
+C:\Users\Vu Duc Tinh\Downloads\Thuc_Tap_CSDL\Quan_li_thi_cap_chu_chi_CNTT\phieuDangKi\bin\Debug\phieuDangKi.pdb
+C:\Users\Vu Duc Tinh\Downloads\Thuc_Tap_CSDL\Quan_li_thi_cap_chu_chi_CNTT\phieuDangKi\obj\Debug\phieuDangKi.csprojAssemblyReference.cache
+C:\Users\Vu Duc Tinh\Downloads\Thuc_Tap_CSDL\Quan_li_thi_cap_chu_chi_CNTT\phieuDangKi\obj\Debug\phieuDangKi.Properties.Resources.resources
+C:\Users\Vu Duc Tinh\Downloads\Thuc_Tap_CSDL\Quan_li_thi_cap_chu_chi_CNTT\phieuDangKi\obj\Debug\phieuDangKi.csproj.GenerateResource.cache
+C:\Users\Vu Duc Tinh\Downloads\Thuc_Tap_CSDL\Quan_li_thi_cap_chu_chi_CNTT\phieuDangKi\obj\Debug\phieuDangKi.csproj.CoreCompileInputs.cache
+C:\Users\Vu Duc Tinh\Downloads\Thuc_Tap_CSDL\Quan_li_thi_cap_chu_chi_CNTT\phieuDangKi\obj\Debug\phieuDangKi.exe
+C:\Users\Vu Duc Tinh\Downloads\Thuc_Tap_CSDL\Quan_li_thi_cap_chu_chi_CNTT\phieuDangKi\obj\Debug\phieuDangKi.pdb
+C:\Users\Vu Duc Tinh\Downloads\Thuc_Tap_CSDL\Quan_li_thi_cap_chu_chi_CNTT\phieuDangKi\bin\Debug\EntityFramework.dll
+C:\Users\Vu Duc Tinh\Downloads\Thuc_Tap_CSDL\Quan_li_thi_cap_chu_chi_CNTT\phieuDangKi\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Vu Duc Tinh\Downloads\Thuc_Tap_CSDL\Quan_li_thi_cap_chu_chi_CNTT\phieuDangKi\bin\Debug\EntityFramework.xml
+C:\Users\Vu Duc Tinh\Downloads\Thuc_Tap_CSDL\Quan_li_thi_cap_chu_chi_CNTT\phieuDangKi\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Vu Duc Tinh\Downloads\Thuc_Tap_CSDL\Quan_li_thi_cap_chu_chi_CNTT\phieuDangKi\obj\Debug\phieuDangKi.csproj.CopyComplete
+C:\Users\Vu Duc Tinh\Downloads\Thuc_Tap_CSDL\Quan_li_thi_cap_chu_chi_CNTT\phieuDangKi\obj\Debug\phieuDangKi.PhieuDangKi.resources

@@ -1,0 +1,338 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Quan_li_thi_chung_chi_CNTTModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="BaiThi">
+    <Key>
+      <PropertyRef Name="MaBT" />
+    </Key>
+    <Property Name="MaBT" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="SBD" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="ThiSinh" Relationship="Self.FK__BaiThi__SBD__3C69FB99" FromRole="BaiThi" ToRole="ThiSinh" />
+    <NavigationProperty Name="KetQuas" Relationship="Self.FK__KetQua__MaBT__6E01572D" FromRole="BaiThi" ToRole="KetQua" />
+  </EntityType>
+  <EntityType Name="CapChungChi">
+    <Key>
+      <PropertyRef Name="MaHD" />
+      <PropertyRef Name="SBD" />
+    </Key>
+    <Property Name="MaHD" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="SBD" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="Tenchungchi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Sovanbang" Type="Int32" />
+    <Property Name="Sovaoso" Type="Int32" />
+    <Property Name="Ngaycap" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="HoiDong" Relationship="Self.FK__CapChungCh__MaHD__440B1D61" FromRole="CapChungChi" ToRole="HoiDong" />
+    <NavigationProperty Name="ThiSinh" Relationship="Self.FK__CapChungChi__SBD__44FF419A" FromRole="CapChungChi" ToRole="ThiSinh" />
+  </EntityType>
+  <EntityType Name="ChitietDK">
+    <Key>
+      <PropertyRef Name="Madk" />
+      <PropertyRef Name="SBD" />
+    </Key>
+    <Property Name="Madk" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="SBD" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="DangKy" Relationship="Self.FK__ChitietDK__Madk__49C3F6B7" FromRole="ChitietDK" ToRole="DangKy" />
+    <NavigationProperty Name="ThiSinh" Relationship="Self.FK__ChitietDK__SBD__4AB81AF0" FromRole="ChitietDK" ToRole="ThiSinh" />
+  </EntityType>
+  <EntityType Name="DangKy">
+    <Key>
+      <PropertyRef Name="Madk" />
+    </Key>
+    <Property Name="Madk" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="Tungay" Type="DateTime" Precision="0" />
+    <Property Name="Denngay" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="ChitietDKs" Relationship="Self.FK__ChitietDK__Madk__49C3F6B7" FromRole="DangKy" ToRole="ChitietDK" />
+  </EntityType>
+  <EntityType Name="DotThi">
+    <Key>
+      <PropertyRef Name="MaGV" />
+      <PropertyRef Name="MaHD" />
+    </Key>
+    <Property Name="MaGV" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="MaHD" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="Ngaythi" Type="DateTime" Precision="0" />
+    <Property Name="Tendot" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Diachi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Nhiemvu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="GiaoVien" Relationship="Self.FK__DotThi__MaGV__534D60F1" FromRole="DotThi" ToRole="GiaoVien" />
+    <NavigationProperty Name="HoiDong" Relationship="Self.FK__DotThi__MaHD__5441852A" FromRole="DotThi" ToRole="HoiDong" />
+  </EntityType>
+  <EntityType Name="GiaoVien">
+    <Key>
+      <PropertyRef Name="MaGV" />
+    </Key>
+    <Property Name="MaGV" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="Hoten" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Ngaysinh" Type="DateTime" Precision="0" />
+    <Property Name="Gioitinh" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="SDT" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
+    <Property Name="CMT" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
+    <Property Name="Capbac" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="STT" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="DotThis" Relationship="Self.FK__DotThi__MaGV__534D60F1" FromRole="GiaoVien" ToRole="DotThi" />
+  </EntityType>
+  <EntityType Name="HoiDong">
+    <Key>
+      <PropertyRef Name="MaHD" />
+    </Key>
+    <Property Name="MaHD" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="Ten" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Ghichu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="CapChungChis" Relationship="Self.FK__CapChungCh__MaHD__440B1D61" FromRole="HoiDong" ToRole="CapChungChi" />
+    <NavigationProperty Name="DotThis" Relationship="Self.FK__DotThi__MaHD__5441852A" FromRole="HoiDong" ToRole="DotThi" />
+    <NavigationProperty Name="KetQuas" Relationship="Self.FK__KetQua__MaHD__6EF57B66" FromRole="HoiDong" ToRole="KetQua" />
+  </EntityType>
+  <EntityType Name="KetQua">
+    <Key>
+      <PropertyRef Name="MaBT" />
+      <PropertyRef Name="MaHD" />
+    </Key>
+    <Property Name="MaBT" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="MaHD" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="DiemLT" Type="Single" />
+    <Property Name="Diem_word" Type="Single" />
+    <Property Name="Diem_excel" Type="Single" />
+    <Property Name="Diem_ppt" Type="Single" />
+    <Property Name="STT" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="BaiThi" Relationship="Self.FK__KetQua__MaBT__6E01572D" FromRole="KetQua" ToRole="BaiThi" />
+    <NavigationProperty Name="HoiDong" Relationship="Self.FK__KetQua__MaHD__6EF57B66" FromRole="KetQua" ToRole="HoiDong" />
+  </EntityType>
+  <EntityType Name="LePhi">
+    <Key>
+      <PropertyRef Name="Maluachon" />
+    </Key>
+    <Property Name="Maluachon" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="Nhucau" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Trinhdo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ThuocHV" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Giatien" Type="Int32" />
+    <NavigationProperty Name="ThiSinhs" Relationship="Self.FK__ThiSinh__Maluach__398D8EEE" FromRole="LePhi" ToRole="ThiSinh" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="ThiSinh">
+    <Key>
+      <PropertyRef Name="SBD" />
+    </Key>
+    <Property Name="SBD" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="HoTen" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Ngaysinh" Type="DateTime" Precision="0" />
+    <Property Name="Gioitinh" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="SDT" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
+    <Property Name="CMT" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
+    <Property Name="Maluachon" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+    <Property Name="STT" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="BaiThis" Relationship="Self.FK__BaiThi__SBD__3C69FB99" FromRole="ThiSinh" ToRole="BaiThi" />
+    <NavigationProperty Name="CapChungChis" Relationship="Self.FK__CapChungChi__SBD__44FF419A" FromRole="ThiSinh" ToRole="CapChungChi" />
+    <NavigationProperty Name="ChitietDKs" Relationship="Self.FK__ChitietDK__SBD__4AB81AF0" FromRole="ThiSinh" ToRole="ChitietDK" />
+    <NavigationProperty Name="LePhi" Relationship="Self.FK__ThiSinh__Maluach__398D8EEE" FromRole="ThiSinh" ToRole="LePhi" />
+    <NavigationProperty Name="XacNhans" Relationship="Self.FK__XacNhan__SBD__74AE54BC" FromRole="ThiSinh" ToRole="XacNhan" />
+  </EntityType>
+  <EntityType Name="XacNhan">
+    <Key>
+      <PropertyRef Name="Maxacnhan" />
+    </Key>
+    <Property Name="Maxacnhan" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Daxacnhan" Type="Boolean" />
+    <Property Name="SBD" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="ThiSinh" Relationship="Self.FK__XacNhan__SBD__74AE54BC" FromRole="XacNhan" ToRole="ThiSinh" />
+  </EntityType>
+  <Association Name="FK__BaiThi__SBD__3C69FB99">
+    <End Role="ThiSinh" Type="Self.ThiSinh" Multiplicity="0..1" />
+    <End Role="BaiThi" Type="Self.BaiThi" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ThiSinh">
+        <PropertyRef Name="SBD" />
+      </Principal>
+      <Dependent Role="BaiThi">
+        <PropertyRef Name="SBD" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__KetQua__MaBT__6E01572D">
+    <End Role="BaiThi" Type="Self.BaiThi" Multiplicity="1" />
+    <End Role="KetQua" Type="Self.KetQua" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BaiThi">
+        <PropertyRef Name="MaBT" />
+      </Principal>
+      <Dependent Role="KetQua">
+        <PropertyRef Name="MaBT" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CapChungCh__MaHD__440B1D61">
+    <End Role="HoiDong" Type="Self.HoiDong" Multiplicity="1" />
+    <End Role="CapChungChi" Type="Self.CapChungChi" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HoiDong">
+        <PropertyRef Name="MaHD" />
+      </Principal>
+      <Dependent Role="CapChungChi">
+        <PropertyRef Name="MaHD" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CapChungChi__SBD__44FF419A">
+    <End Role="ThiSinh" Type="Self.ThiSinh" Multiplicity="1" />
+    <End Role="CapChungChi" Type="Self.CapChungChi" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ThiSinh">
+        <PropertyRef Name="SBD" />
+      </Principal>
+      <Dependent Role="CapChungChi">
+        <PropertyRef Name="SBD" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ChitietDK__Madk__49C3F6B7">
+    <End Role="DangKy" Type="Self.DangKy" Multiplicity="1" />
+    <End Role="ChitietDK" Type="Self.ChitietDK" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DangKy">
+        <PropertyRef Name="Madk" />
+      </Principal>
+      <Dependent Role="ChitietDK">
+        <PropertyRef Name="Madk" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ChitietDK__SBD__4AB81AF0">
+    <End Role="ThiSinh" Type="Self.ThiSinh" Multiplicity="1" />
+    <End Role="ChitietDK" Type="Self.ChitietDK" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ThiSinh">
+        <PropertyRef Name="SBD" />
+      </Principal>
+      <Dependent Role="ChitietDK">
+        <PropertyRef Name="SBD" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__DotThi__MaGV__534D60F1">
+    <End Role="GiaoVien" Type="Self.GiaoVien" Multiplicity="1" />
+    <End Role="DotThi" Type="Self.DotThi" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GiaoVien">
+        <PropertyRef Name="MaGV" />
+      </Principal>
+      <Dependent Role="DotThi">
+        <PropertyRef Name="MaGV" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__DotThi__MaHD__5441852A">
+    <End Role="HoiDong" Type="Self.HoiDong" Multiplicity="1" />
+    <End Role="DotThi" Type="Self.DotThi" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HoiDong">
+        <PropertyRef Name="MaHD" />
+      </Principal>
+      <Dependent Role="DotThi">
+        <PropertyRef Name="MaHD" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__KetQua__MaHD__6EF57B66">
+    <End Role="HoiDong" Type="Self.HoiDong" Multiplicity="1" />
+    <End Role="KetQua" Type="Self.KetQua" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HoiDong">
+        <PropertyRef Name="MaHD" />
+      </Principal>
+      <Dependent Role="KetQua">
+        <PropertyRef Name="MaHD" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ThiSinh__Maluach__398D8EEE">
+    <End Role="LePhi" Type="Self.LePhi" Multiplicity="0..1" />
+    <End Role="ThiSinh" Type="Self.ThiSinh" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LePhi">
+        <PropertyRef Name="Maluachon" />
+      </Principal>
+      <Dependent Role="ThiSinh">
+        <PropertyRef Name="Maluachon" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__XacNhan__SBD__74AE54BC">
+    <End Role="ThiSinh" Type="Self.ThiSinh" Multiplicity="0..1" />
+    <End Role="XacNhan" Type="Self.XacNhan" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ThiSinh">
+        <PropertyRef Name="SBD" />
+      </Principal>
+      <Dependent Role="XacNhan">
+        <PropertyRef Name="SBD" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Quan_li_thi_chung_chi_CNTTEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="BaiThis" EntityType="Self.BaiThi" />
+    <EntitySet Name="CapChungChis" EntityType="Self.CapChungChi" />
+    <EntitySet Name="ChitietDKs" EntityType="Self.ChitietDK" />
+    <EntitySet Name="DangKies" EntityType="Self.DangKy" />
+    <EntitySet Name="DotThis" EntityType="Self.DotThi" />
+    <EntitySet Name="GiaoViens" EntityType="Self.GiaoVien" />
+    <EntitySet Name="HoiDongs" EntityType="Self.HoiDong" />
+    <EntitySet Name="KetQuas" EntityType="Self.KetQua" />
+    <EntitySet Name="LePhis" EntityType="Self.LePhi" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <EntitySet Name="ThiSinhs" EntityType="Self.ThiSinh" />
+    <EntitySet Name="XacNhans" EntityType="Self.XacNhan" />
+    <AssociationSet Name="FK__BaiThi__SBD__3C69FB99" Association="Self.FK__BaiThi__SBD__3C69FB99">
+      <End Role="ThiSinh" EntitySet="ThiSinhs" />
+      <End Role="BaiThi" EntitySet="BaiThis" />
+    </AssociationSet>
+    <AssociationSet Name="FK__KetQua__MaBT__6E01572D" Association="Self.FK__KetQua__MaBT__6E01572D">
+      <End Role="BaiThi" EntitySet="BaiThis" />
+      <End Role="KetQua" EntitySet="KetQuas" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CapChungCh__MaHD__440B1D61" Association="Self.FK__CapChungCh__MaHD__440B1D61">
+      <End Role="HoiDong" EntitySet="HoiDongs" />
+      <End Role="CapChungChi" EntitySet="CapChungChis" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CapChungChi__SBD__44FF419A" Association="Self.FK__CapChungChi__SBD__44FF419A">
+      <End Role="ThiSinh" EntitySet="ThiSinhs" />
+      <End Role="CapChungChi" EntitySet="CapChungChis" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ChitietDK__Madk__49C3F6B7" Association="Self.FK__ChitietDK__Madk__49C3F6B7">
+      <End Role="DangKy" EntitySet="DangKies" />
+      <End Role="ChitietDK" EntitySet="ChitietDKs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ChitietDK__SBD__4AB81AF0" Association="Self.FK__ChitietDK__SBD__4AB81AF0">
+      <End Role="ThiSinh" EntitySet="ThiSinhs" />
+      <End Role="ChitietDK" EntitySet="ChitietDKs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__DotThi__MaGV__534D60F1" Association="Self.FK__DotThi__MaGV__534D60F1">
+      <End Role="GiaoVien" EntitySet="GiaoViens" />
+      <End Role="DotThi" EntitySet="DotThis" />
+    </AssociationSet>
+    <AssociationSet Name="FK__DotThi__MaHD__5441852A" Association="Self.FK__DotThi__MaHD__5441852A">
+      <End Role="HoiDong" EntitySet="HoiDongs" />
+      <End Role="DotThi" EntitySet="DotThis" />
+    </AssociationSet>
+    <AssociationSet Name="FK__KetQua__MaHD__6EF57B66" Association="Self.FK__KetQua__MaHD__6EF57B66">
+      <End Role="HoiDong" EntitySet="HoiDongs" />
+      <End Role="KetQua" EntitySet="KetQuas" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ThiSinh__Maluach__398D8EEE" Association="Self.FK__ThiSinh__Maluach__398D8EEE">
+      <End Role="LePhi" EntitySet="LePhis" />
+      <End Role="ThiSinh" EntitySet="ThiSinhs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__XacNhan__SBD__74AE54BC" Association="Self.FK__XacNhan__SBD__74AE54BC">
+      <End Role="ThiSinh" EntitySet="ThiSinhs" />
+      <End Role="XacNhan" EntitySet="XacNhans" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

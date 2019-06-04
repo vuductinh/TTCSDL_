@@ -1,0 +1,292 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="quan_li_sinh_vien_NCKHModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="BoMon">
+    <Key>
+      <PropertyRef Name="Mabomon" />
+    </Key>
+    <Property Name="Mabomon" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="tenbomon" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Makhoa" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="Khoa" Relationship="Self.FK__BoMon__Makhoa__398D8EEE" FromRole="BoMon" ToRole="Khoa" />
+    <NavigationProperty Name="ChuyenNganhs" Relationship="Self.FK__ChuyenNga__Mabom__45F365D3" FromRole="BoMon" ToRole="ChuyenNganh" />
+    <NavigationProperty Name="GiaoViens" Relationship="Self.FK__GiaoVien__Mabomo__160F4887" FromRole="BoMon" ToRole="GiaoVien" />
+  </EntityType>
+  <EntityType Name="ChuyenNganh">
+    <Key>
+      <PropertyRef Name="MaCN" />
+    </Key>
+    <Property Name="MaCN" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="tenCN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Mabomon" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="BoMon" Relationship="Self.FK__ChuyenNga__Mabom__45F365D3" FromRole="ChuyenNganh" ToRole="BoMon" />
+    <NavigationProperty Name="DetaiNCKHs" Relationship="Self.FK__DetaiNCKH__MaCN__19DFD96B" FromRole="ChuyenNganh" ToRole="DetaiNCKH" />
+  </EntityType>
+  <EntityType Name="DetaiNCKH">
+    <Key>
+      <PropertyRef Name="Madetai" />
+    </Key>
+    <Property Name="Madetai" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="tendetai" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="noidung" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="ngaybd" Type="DateTime" Precision="0" />
+    <Property Name="ngaykt" Type="DateTime" Precision="0" />
+    <Property Name="ketqua" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MaGV" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+    <Property Name="MaCN" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="ChuyenNganh" Relationship="Self.FK__DetaiNCKH__MaCN__19DFD96B" FromRole="DetaiNCKH" ToRole="ChuyenNganh" />
+    <NavigationProperty Name="GiaoVien" Relationship="Self.FK__DetaiNCKH__MaGV__18EBB532" FromRole="DetaiNCKH" ToRole="GiaoVien" />
+    <NavigationProperty Name="QuanliTHs" Relationship="Self.FK__QuanliTH__Madeta__41EDCAC5" FromRole="DetaiNCKH" ToRole="QuanliTH" />
+    <NavigationProperty Name="TienDoTHs" Relationship="Self.FK__TienDoTH__Madeta__1EA48E88" FromRole="DetaiNCKH" ToRole="TienDoTH" />
+  </EntityType>
+  <EntityType Name="GiaoVien">
+    <Key>
+      <PropertyRef Name="MaGV" />
+    </Key>
+    <Property Name="MaGV" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="TenGV" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="gioitinhGV" Type="Boolean" />
+    <Property Name="Mabomon" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+    <Property Name="ngaysinhgv" Type="DateTime" Precision="0" />
+    <Property Name="luong" Type="Int32" />
+    <NavigationProperty Name="BoMon" Relationship="Self.FK__GiaoVien__Mabomo__160F4887" FromRole="GiaoVien" ToRole="BoMon" />
+    <NavigationProperty Name="DetaiNCKHs" Relationship="Self.FK__DetaiNCKH__MaGV__18EBB532" FromRole="GiaoVien" ToRole="DetaiNCKH" />
+  </EntityType>
+  <EntityType Name="Khoa">
+    <Key>
+      <PropertyRef Name="Makhoa" />
+    </Key>
+    <Property Name="Makhoa" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="Tenkhoa" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="BoMons" Relationship="Self.FK__BoMon__Makhoa__398D8EEE" FromRole="Khoa" ToRole="BoMon" />
+    <NavigationProperty Name="LopSHes" Relationship="Self.FK__LopSH__Makhoa__3C69FB99" FromRole="Khoa" ToRole="LopSH" />
+  </EntityType>
+  <EntityType Name="LopSH">
+    <Key>
+      <PropertyRef Name="MalopSH" />
+    </Key>
+    <Property Name="MalopSH" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="Tenlopsh" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Makhoa" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+    <Property Name="tongsoSV" Type="Int32" />
+    <NavigationProperty Name="Khoa" Relationship="Self.FK__LopSH__Makhoa__3C69FB99" FromRole="LopSH" ToRole="Khoa" />
+    <NavigationProperty Name="SinhViens" Relationship="Self.FK__SinhVien__MalopS__3F466844" FromRole="LopSH" ToRole="SinhVien" />
+  </EntityType>
+  <EntityType Name="QuanliTH">
+    <Key>
+      <PropertyRef Name="MaSV" />
+      <PropertyRef Name="Madetai" />
+    </Key>
+    <Property Name="MaSV" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="Madetai" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="NDthuchien" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="ketqua" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="vaitro" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="DetaiNCKH" Relationship="Self.FK__QuanliTH__Madeta__41EDCAC5" FromRole="QuanliTH" ToRole="DetaiNCKH" />
+    <NavigationProperty Name="SinhVien" Relationship="Self.FK__QuanliTH__MaSV__40F9A68C" FromRole="QuanliTH" ToRole="SinhVien" />
+  </EntityType>
+  <EntityType Name="SinhVien">
+    <Key>
+      <PropertyRef Name="MaSV" />
+    </Key>
+    <Property Name="MaSV" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="TenSV" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NgaySinh" Type="DateTime" Precision="0" />
+    <Property Name="Diachi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Gioitinh" Type="Boolean" />
+    <Property Name="MalopSH" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+    <Property Name="tongsodetai" Type="Int32" />
+    <NavigationProperty Name="LopSH" Relationship="Self.FK__SinhVien__MalopS__3F466844" FromRole="SinhVien" ToRole="LopSH" />
+    <NavigationProperty Name="QuanliTHs" Relationship="Self.FK__QuanliTH__MaSV__40F9A68C" FromRole="SinhVien" ToRole="QuanliTH" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="TienDoTH">
+    <Key>
+      <PropertyRef Name="MaTD" />
+    </Key>
+    <Property Name="MaTD" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="ketquaTD" Type="Int32" />
+    <Property Name="Madetai" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="DetaiNCKH" Relationship="Self.FK__TienDoTH__Madeta__1EA48E88" FromRole="TienDoTH" ToRole="DetaiNCKH" />
+  </EntityType>
+  <Association Name="FK__BoMon__Makhoa__398D8EEE">
+    <End Role="Khoa" Type="Self.Khoa" Multiplicity="0..1" />
+    <End Role="BoMon" Type="Self.BoMon" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Khoa">
+        <PropertyRef Name="Makhoa" />
+      </Principal>
+      <Dependent Role="BoMon">
+        <PropertyRef Name="Makhoa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ChuyenNga__Mabom__45F365D3">
+    <End Role="BoMon" Type="Self.BoMon" Multiplicity="0..1" />
+    <End Role="ChuyenNganh" Type="Self.ChuyenNganh" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BoMon">
+        <PropertyRef Name="Mabomon" />
+      </Principal>
+      <Dependent Role="ChuyenNganh">
+        <PropertyRef Name="Mabomon" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__GiaoVien__Mabomo__160F4887">
+    <End Role="BoMon" Type="Self.BoMon" Multiplicity="0..1" />
+    <End Role="GiaoVien" Type="Self.GiaoVien" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BoMon">
+        <PropertyRef Name="Mabomon" />
+      </Principal>
+      <Dependent Role="GiaoVien">
+        <PropertyRef Name="Mabomon" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__DetaiNCKH__MaCN__19DFD96B">
+    <End Role="ChuyenNganh" Type="Self.ChuyenNganh" Multiplicity="0..1" />
+    <End Role="DetaiNCKH" Type="Self.DetaiNCKH" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ChuyenNganh">
+        <PropertyRef Name="MaCN" />
+      </Principal>
+      <Dependent Role="DetaiNCKH">
+        <PropertyRef Name="MaCN" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__DetaiNCKH__MaGV__18EBB532">
+    <End Role="GiaoVien" Type="Self.GiaoVien" Multiplicity="0..1" />
+    <End Role="DetaiNCKH" Type="Self.DetaiNCKH" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GiaoVien">
+        <PropertyRef Name="MaGV" />
+      </Principal>
+      <Dependent Role="DetaiNCKH">
+        <PropertyRef Name="MaGV" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__QuanliTH__Madeta__41EDCAC5">
+    <End Role="DetaiNCKH" Type="Self.DetaiNCKH" Multiplicity="1" />
+    <End Role="QuanliTH" Type="Self.QuanliTH" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DetaiNCKH">
+        <PropertyRef Name="Madetai" />
+      </Principal>
+      <Dependent Role="QuanliTH">
+        <PropertyRef Name="Madetai" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TienDoTH__Madeta__1EA48E88">
+    <End Role="DetaiNCKH" Type="Self.DetaiNCKH" Multiplicity="0..1" />
+    <End Role="TienDoTH" Type="Self.TienDoTH" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DetaiNCKH">
+        <PropertyRef Name="Madetai" />
+      </Principal>
+      <Dependent Role="TienDoTH">
+        <PropertyRef Name="Madetai" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__LopSH__Makhoa__3C69FB99">
+    <End Role="Khoa" Type="Self.Khoa" Multiplicity="0..1" />
+    <End Role="LopSH" Type="Self.LopSH" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Khoa">
+        <PropertyRef Name="Makhoa" />
+      </Principal>
+      <Dependent Role="LopSH">
+        <PropertyRef Name="Makhoa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__SinhVien__MalopS__3F466844">
+    <End Role="LopSH" Type="Self.LopSH" Multiplicity="0..1" />
+    <End Role="SinhVien" Type="Self.SinhVien" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LopSH">
+        <PropertyRef Name="MalopSH" />
+      </Principal>
+      <Dependent Role="SinhVien">
+        <PropertyRef Name="MalopSH" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__QuanliTH__MaSV__40F9A68C">
+    <End Role="SinhVien" Type="Self.SinhVien" Multiplicity="1" />
+    <End Role="QuanliTH" Type="Self.QuanliTH" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SinhVien">
+        <PropertyRef Name="MaSV" />
+      </Principal>
+      <Dependent Role="QuanliTH">
+        <PropertyRef Name="MaSV" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="quan_li_sinh_vien_NCKHEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="BoMons" EntityType="Self.BoMon" />
+    <EntitySet Name="ChuyenNganhs" EntityType="Self.ChuyenNganh" />
+    <EntitySet Name="DetaiNCKHs" EntityType="Self.DetaiNCKH" />
+    <EntitySet Name="GiaoViens" EntityType="Self.GiaoVien" />
+    <EntitySet Name="Khoas" EntityType="Self.Khoa" />
+    <EntitySet Name="LopSHes" EntityType="Self.LopSH" />
+    <EntitySet Name="QuanliTHs" EntityType="Self.QuanliTH" />
+    <EntitySet Name="SinhViens" EntityType="Self.SinhVien" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <EntitySet Name="TienDoTHs" EntityType="Self.TienDoTH" />
+    <AssociationSet Name="FK__BoMon__Makhoa__398D8EEE" Association="Self.FK__BoMon__Makhoa__398D8EEE">
+      <End Role="Khoa" EntitySet="Khoas" />
+      <End Role="BoMon" EntitySet="BoMons" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ChuyenNga__Mabom__45F365D3" Association="Self.FK__ChuyenNga__Mabom__45F365D3">
+      <End Role="BoMon" EntitySet="BoMons" />
+      <End Role="ChuyenNganh" EntitySet="ChuyenNganhs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__GiaoVien__Mabomo__160F4887" Association="Self.FK__GiaoVien__Mabomo__160F4887">
+      <End Role="BoMon" EntitySet="BoMons" />
+      <End Role="GiaoVien" EntitySet="GiaoViens" />
+    </AssociationSet>
+    <AssociationSet Name="FK__DetaiNCKH__MaCN__19DFD96B" Association="Self.FK__DetaiNCKH__MaCN__19DFD96B">
+      <End Role="ChuyenNganh" EntitySet="ChuyenNganhs" />
+      <End Role="DetaiNCKH" EntitySet="DetaiNCKHs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__DetaiNCKH__MaGV__18EBB532" Association="Self.FK__DetaiNCKH__MaGV__18EBB532">
+      <End Role="GiaoVien" EntitySet="GiaoViens" />
+      <End Role="DetaiNCKH" EntitySet="DetaiNCKHs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__QuanliTH__Madeta__41EDCAC5" Association="Self.FK__QuanliTH__Madeta__41EDCAC5">
+      <End Role="DetaiNCKH" EntitySet="DetaiNCKHs" />
+      <End Role="QuanliTH" EntitySet="QuanliTHs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TienDoTH__Madeta__1EA48E88" Association="Self.FK__TienDoTH__Madeta__1EA48E88">
+      <End Role="DetaiNCKH" EntitySet="DetaiNCKHs" />
+      <End Role="TienDoTH" EntitySet="TienDoTHs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__LopSH__Makhoa__3C69FB99" Association="Self.FK__LopSH__Makhoa__3C69FB99">
+      <End Role="Khoa" EntitySet="Khoas" />
+      <End Role="LopSH" EntitySet="LopSHes" />
+    </AssociationSet>
+    <AssociationSet Name="FK__SinhVien__MalopS__3F466844" Association="Self.FK__SinhVien__MalopS__3F466844">
+      <End Role="LopSH" EntitySet="LopSHes" />
+      <End Role="SinhVien" EntitySet="SinhViens" />
+    </AssociationSet>
+    <AssociationSet Name="FK__QuanliTH__MaSV__40F9A68C" Association="Self.FK__QuanliTH__MaSV__40F9A68C">
+      <End Role="SinhVien" EntitySet="SinhViens" />
+      <End Role="QuanliTH" EntitySet="QuanliTHs" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
